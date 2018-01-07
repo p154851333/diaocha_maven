@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.diaocha</groupId>
+  <artifactId>diaocha</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>diaocha Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <!-- 主要依赖库的版本定义：描述了这个项目构建环境中的前提条件 -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding><!-- 定义资源文件的编码格式 -->
+
+    <jackson.version>2.8.4</jackson.version>
+    <mysql.driver.version>5.1.35</mysql.driver.version>
+    <fastjson.version>1.2.20</fastjson.version>
+
+    <!-- environment setting -->
+    <jdk.version>1.8</jdk.version>
+  </properties>
+
+  <!-- 设定主仓库，按设定顺序进行查找。 -->
+  <repositories>
+    <repository>
+      <id>nexus-aliyun</id>
+      <name>Nexus aliyun</name>
+      <layout>default</layout>
+      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </repository>
+  </repositories>
+
+  <!-- 设定插件仓库 -->
+  <pluginRepositories>
+    <pluginRepository>
+      <id>nexus-aliyun</id>
+      <name>Nexus aliyun</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--struts2依赖-->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-core</artifactId>
+      <version>2.5.1</version>
+    </dependency>
+
+    <!--servlet依赖-->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+
+    <!-- 3.SERVLET WEB begin -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId><!-- j2ee web spec -->
+      <version>4.0.0-b01</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId><!-- JSTL标签类 -->
+      <version>1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId><!-- jackson json:高性能的JSON处理-->
+      <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId><!-- 格式化对象，方便输出日志 -->
+      <version>${fastjson.version}</version>
+    </dependency>
+
+    <!-- 5.MYSQL 数据库相关依赖 begin -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId><!-- 导入Mysql数据库驱动包 -->
+      <version>${mysql.driver.version}</version>
+    </dependency>
+    <!-- MYSQL 数据库相关依赖 end -->
+
+
+  </dependencies>
+  <build>
+    <finalName>diaocha</finalName>
+  </build>
+</project>
